@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- UIkit JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.0.0-rc.6/dist/iconify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.js"
+        integrity="sha512-LlFvdZpYhQdASf4aZfSpmyHD6+waYVfJRwfJrBgki7/Uh+TXMLFYcKMRim65+o3lFsfk20vrK9sJDute7BUAUw=="
+        crossorigin="anonymous"></script>
+
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="uk-container uk-height-1-1 uk-container-expand uk-margin-remove uk-padding-remove" id="dashboard">
+        <div class="uk-width-1-1 uk-height-1-1 uk-padding-remove uk-margin-remove" id="body" uk-grid>
+            <div class="uk-width-1-6@l uk-width-1-5@m uk-padding-remove uk-margin-remove" id="sidenav">
+                <ul class="uk-nav uk-nav-default">
+                    <li
+                        class="uk-nav-header uk-text-center uk-padding uk-padding-remove-horizontal uk-margin-small-bottom">
+                        <img class="uk-width-3-5" src="img/color logo fun.png">
+                    </li>
+                    <li class="uk-active uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="dashboard.html"><span class="iconify" data-icon="bx:bxs-dashboard"
+                                data-inline="false"></span> Dasboard</a>
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="user.html"><span
+                                class="iconify" data-icon="bx:bxs-user" data-inline="false"></span> User</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="pelanggan.html"><span
+                                class="iconify" data-icon="gridicons:multiple-users" data-inline="false"></span>
+                            Pelanggan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="produk.html"><span
+                                class="iconify" data-icon="gridicons:product" data-inline="false"></span> Produk</a>
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="pesanan.html"><span
+                                class="iconify" data-icon="clarity:list-solid-badged" data-inline="false"></span>
+                            Pesanan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="laporan_pesanan.html"><span class="iconify" data-icon="carbon:report"
+                                data-inline="false"></span> Laporan Pesanan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="laporan_keuangan.html"><span class="iconify" data-icon="carbon:report-data"
+                                data-inline="false"></span> Laporan Keuangan</a></li>
+                </ul>
+            </div>
+            <div class="uk-width-5-6@l uk-width-4-5@m uk-padding-remove uk-margin-remove" id="content">
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove content-head">
+                    <div
+                        class="uk-width-1-1 uk-padding-small uk-padding-remove-bottom uk-margin-remove head uk-clearfix">
+                        <div class="uk-inline poppins-semi-bold uk-float-left">
+                            Dashboard
+                        </div>
+                        <div class="uk-inline poppins-medium uk-float-right">
+                            <a type="button">
+                                <span
+                                    class="uk-margin-small-right uk-float-left uk-padding-small uk-padding-remove-horizontal">
+                                    Admin
+                                </span>
+                                <div class="uk-float-right uk-border-circle profil uk-background-cover uk-background-top-center uk-background-norepeat"
+                                    style="background-image: url('img/m header.png');"></div>
+                            </a>
+                            <div class="uk-padding-small" uk-dropdown="mode: click; pos: bottom-right; offset: 40">
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li><a href="<?php echo base_url(); ?>login/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove">
+                    <div class="uk-width-1-1 uk-padding-large uk-padding-remove-vertical uk-margin-remove body-content">
+                        <div class="uk-width-1-1 uk-child-width-1-4@l uk-padding-remove uk-margin-remove-left uk-margin-remove-right uk-margin-small-top uk-grid-match card"
+                            uk-grid>
+                            <div class="body-card">
+                                <div>
+                                    <div class="uk-width-1-1 uk-text-center heading">Pesanan Menunggu</div>
+                                    <div class="uk-width-1-1 uk-text-center value">300</div>
+                                </div>
+                            </div>
+                            <div class="body-card">
+                                <div>
+                                    <div class="uk-width-1-1 uk-text-center heading">Pesanan Proses</div>
+                                    <div class="uk-width-1-1 uk-text-center value">3</div>
+                                </div>
+                            </div>
+                            <div class="body-card">
+                                <div>
+                                    <div class="uk-width-1-1 uk-text-center heading">Pesanan Selesai</div>
+                                    <div class="uk-width-1-1 uk-text-center value">297</div>
+                                </div>
+                            </div>
+                            <div class="body-card">
+                                <div>
+                                    <div class="uk-width-1-1 uk-text-center heading">Jumlah Pelanggan</div>
+                                    <div class="uk-width-1-1 uk-text-center value">297</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1 uk-padding uk-padding-remove-horizontal uk-margin-remove">
+                            <div class="uk-width-1-1 uk-padding-small uk-margin-remove segmen-body">
+                                <canvas id="chartjs" class="uk-width-1-1"></canvas>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1 uk-padding uk-padding-remove-horizontal uk-margin-remove">
+                            <div class="uk-width-1-1 uk-padding-small uk-margin-remove segmen-body">
+                                <h3>LAPORAN HARI INI</h3>
+                                <div class="uk-overflow-auto">
+                                    <table class="uk-table uk-table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Tanggal</th>
+                                                <th>Kode</th>
+                                                <th>Jml Pohon</th>
+                                                <th>Panen</th>
+                                                <th>Rusak</th>
+                                                <th>Sisa</th>
+                                                <th>Photo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                                <td>Table Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="uk-width-1-1 uk-text-right uk-padding-remove uk-margin-remove uk-clearefix">
+                                    <a href="#" class="uk-button button-success-line"><span class="iconify"
+                                            data-icon="bx:bx-show-alt" data-inline="false"></span> LIHAT
+                                        SELENGKAPNYA</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById('chartjs').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(55, 81, 255, 0.3)',
+                        ],
+                        borderColor: [
+                            'rgba(55, 81, 255, 1)',
+                        ],
+                        fill: true,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    tension: 0.5,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    </script>
+</body>
+
+</html>

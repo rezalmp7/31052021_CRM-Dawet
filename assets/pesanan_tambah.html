@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- UIkit JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.0.0-rc.6/dist/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.uikit.min.js"></script>
+
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="uk-container uk-height-1-1 uk-container-expand uk-margin-remove uk-padding-remove" id="dashboard">
+        <div class="uk-width-1-1 uk-height-1-1 uk-padding-remove uk-margin-remove" id="body" uk-grid>
+            <div class="uk-width-1-6@l uk-width-1-5@m uk-padding-remove uk-margin-remove" id="sidenav">
+                <ul class="uk-nav uk-nav-default">
+                    <li
+                        class="uk-nav-header uk-text-center uk-padding uk-padding-remove-horizontal uk-margin-small-bottom">
+                        <img class="uk-width-3-5" src="img/color logo fun.png">
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="dashboard.html"><span class="iconify" data-icon="bx:bxs-dashboard"
+                                data-inline="false"></span> Dashboard</a>
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="user.html"><span class="iconify" data-icon="bx:bxs-user" data-inline="false"></span>
+                            User</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="pelanggan.html"><span class="iconify" data-icon="gridicons:multiple-users"
+                                data-inline="false"></span>
+                            Pelanggan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="produk.html"><span
+                                class="iconify" data-icon="gridicons:product" data-inline="false"></span> Produk</a>
+                    </li>
+                    <li class="uk-active uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="pesanan.html"><span
+                                class="iconify" data-icon="clarity:list-solid-badged" data-inline="false"></span>
+                            Pesanan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="laporan_pesanan.html"><span class="iconify" data-icon="carbon:report"
+                                data-inline="false"></span> Laporan Pesanan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="laporan_keuangan.html"><span class="iconify" data-icon="carbon:report-data"
+                                data-inline="false"></span> Laporan Keuangan</a></li>
+                </ul>
+            </div>
+            <div class="uk-width-5-6@l uk-width-4-5@m uk-padding-remove uk-margin-remove" id="content">
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove content-head">
+                    <div
+                        class="uk-width-1-1 uk-padding-small uk-padding-remove-bottom uk-margin-remove head uk-clearfix">
+                        <div class="uk-inline poppins-semi-bold uk-float-left">
+                            Tambah Pesanan
+                        </div>
+                        <div class="uk-inline poppins-medium uk-float-right">
+                            <a type="button">
+                                <span
+                                    class="uk-margin-small-right uk-float-left uk-padding-small uk-padding-remove-horizontal">
+                                    Admin
+                                </span>
+                                <div class="uk-float-right uk-border-circle profil uk-background-cover uk-background-top-center uk-background-norepeat"
+                                    style="background-image: url('img/m header.png');"></div>
+                            </a>
+                            <div class="uk-padding-small" uk-dropdown="mode: click; pos: bottom-right; offset: 40">
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li><a href="<?php echo base_url(); ?>login/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove">
+                    <div class="uk-width-1-1 uk-padding-large uk-margin-remove body-content">
+                        <div class="uk-padding-small uk-border-rounded segmen-body">
+                            <form method="POST" action="#">
+                                <fieldset class="uk-fieldset">
+
+                                    <legend class="uk-legend">Tambah Pesanan</legend>
+
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Nama</label>
+                                        <div class="uk-form-controls">
+                                            <select class="select2 uk-width-1-1 select_pelanggan" name="pelanggan" placeholder="Pelanggan">
+                                                <option value="">--Pilih Pelanggan--</option>
+                                                <option value="tambah_pelanggan">Tambah Pelanggan</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="uk-margin" id="keterangan_pelanggan">
+                                        <label class="uk-form-label uk-text-bold" for="form-stacked-text">Keterangan Pelanggan</label>
+                                        <table class="uk-table">
+                                            <tr>
+                                                <th>Nama</th>
+                                                <td>Alabama Super</td>
+                                            </tr>
+                                            <tr>
+                                                <th>No Telp</th>
+                                                <td>0871273812931</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Alamat</th>
+                                                <td>Ds. Pakis, Kecamatan Pati, Kabupaten Pati</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="uk-margin" id="tambah_pelanggan">
+                                        <label class="uk-form-label uk-text-bold" for="form-stacked-text">Tambah Pelanggan</label>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-stacked-text">Nama Pelanggan</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" id="form-stacked-text" type="text" name="nama" placeholder="Nama" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-stacked-text">No Telp Pelanggan</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" id="form-stacked-text" type="number" name="no_telp" placeholder="No Telp" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-stacked-text">Alamat Pelanggan</label>
+                                            <div class="uk-form-controls">
+                                                <textarea class="uk-textarea" name="alamat" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Produk</label>
+                                        <div class="uk-form-controls">
+                                            <select class="select2 uk-width-1-1" name="produk">
+                                                <option value="">--Pilih Produk--</option>
+                                                <option value="AL">Dawet Manis</option>
+                                                <option value="WY">Dawet Pahit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Jumlah</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="number"
+                                                name="number" placeholder="Jumlah" required>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Tanggal Pesanan</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="date" name="tgl_pesanan" required>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <input class="uk-button button-uk-success" type="submit" value="SIMPAN">
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

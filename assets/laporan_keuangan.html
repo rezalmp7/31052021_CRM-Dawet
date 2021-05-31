@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- UIkit JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.19/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.0.0-rc.6/dist/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.uikit.min.js"></script>
+
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="uk-container uk-height-1-1 uk-container-expand uk-margin-remove uk-padding-remove" id="dashboard">
+        <div class="uk-width-1-1 uk-height-1-1 uk-padding-remove uk-margin-remove" id="body" uk-grid>
+            <div class="uk-width-1-6@l uk-width-1-5@m uk-padding-remove uk-margin-remove" id="sidenav">
+                <ul class="uk-nav uk-nav-default">
+                    <li
+                        class="uk-nav-header uk-text-center uk-padding uk-padding-remove-horizontal uk-margin-small-bottom">
+                        <img class="uk-width-3-5" src="img/color logo fun.png">
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="dashboard.html"><span class="iconify" data-icon="bx:bxs-dashboard"
+                                data-inline="false"></span> Dashboard</a>
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="user.html"><span
+                                class="iconify" data-icon="bx:bxs-user" data-inline="false"></span> User</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="pelanggan.html"><span class="iconify" data-icon="gridicons:multiple-users"
+                                data-inline="false"></span>
+                            Pelanggan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="produk.html"><span
+                                class="iconify" data-icon="gridicons:product" data-inline="false"></span> Produk</a>
+                    </li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block"
+                            href="pesanan.html"><span class="iconify" data-icon="clarity:list-solid-badged"
+                                data-inline="false"></span>
+                            Pesanan</a></li>
+                    <li class="uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="laporan_pesanan.html"><span
+                                class="iconify" data-icon="carbon:report" data-inline="false"></span> Laporan Pesanan</a></li>
+                    <li class="uk-active uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="laporan_keuangan.html"><span
+                                class="iconify" data-icon="carbon:report-data" data-inline="false"></span> Laporan Keuangan</a></li>
+                </ul>
+            </div>
+            <div class="uk-width-5-6@l uk-width-4-5@m uk-padding-remove uk-margin-remove" id="content">
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove content-head">
+                    <div
+                        class="uk-width-1-1 uk-padding-small uk-padding-remove-bottom uk-margin-remove head uk-clearfix">
+                        <div class="uk-inline poppins-semi-bold uk-float-left">
+                            Produk
+                        </div>
+                        <div class="uk-inline poppins-medium uk-float-right">
+                            <a type="button">
+                                <span
+                                    class="uk-margin-small-right uk-float-left uk-padding-small uk-padding-remove-horizontal">
+                                    Admin
+                                </span>
+                                <div class="uk-float-right uk-border-circle profil uk-background-cover uk-background-top-center uk-background-norepeat"
+                                    style="background-image: url('img/m header.png');"></div>
+                            </a>
+                            <div class="uk-padding-small" uk-dropdown="mode: click; pos: bottom-right; offset: 40">
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li><a href="<?php echo base_url(); ?>login/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-padding-remove uk-margin-remove">
+                    <div class="uk-width-1-1 uk-padding-large uk-margin-remove body-content">
+                        <div class="uk-padding-small uk-border-rounded segmen-body uk-margin-medium-bottom uk-clearfix">
+                            <form class="uk-grid-small" method="POST" action="#" uk-grid>
+                                <div class="uk-width-1-4@s">
+                                    <input class="uk-input" type="date" name="tanggal_awal" placeholder="Tanggal Awal Laporan">
+                                </div>
+                                <div class="uk-width-1-4@s">
+                                    <input class="uk-input" type="date" name="tanggal_akhir" placeholder="Tanggal Akhir Laporan">
+                                </div>
+                                <div uk-margin>
+                                    <button type="submit" class="uk-button button-uk-success"><span class="iconify" data-icon="bytesize:print" data-inline="false"></span> Cetak</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="uk-padding-small uk-border-rounded segmen-body">
+                            <table id="data-table" class="uk-table uk-table-hover uk-table-striped" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Alamat</th>
+                                        <th>Produk</th>
+                                        <th>Jumlah</th>
+                                        <th>Total</th>
+                                        <th>Tgl Pesanan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            Albert
+                                            <hr class="uk-padding-remove uk-margin-remove">
+                                            <span class="uk-text-bold uk-text-small">976621236172</span>
+                                        </td>
+                                        <td>Pati, Gajah Mati</td>
+                                        <td>Dawet Segar</td>
+                                        <td>12</td>
+                                        <td>Rp. 2.000.000</td>
+                                        <td>12/06/2021</td>
+                                        <td>
+                                            <a href="#" class="uk-button uk-button-primary uk-button-small"><span class="iconify" data-icon="bi:search" data-inline="false"></span></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
