@@ -19,6 +19,20 @@
                                             <input class="uk-input" id="form-stacked-text" type="text" name="nama" placeholder="Nama" required>
                                         </div>
                                     </div>
+                                    
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Username</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="text" name="username" placeholder="Username" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Password</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="password" name="password" placeholder="Password" required>
+                                        </div>
+                                    </div>
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-stacked-text">No Telp</label>
                                         <div class="uk-form-controls">

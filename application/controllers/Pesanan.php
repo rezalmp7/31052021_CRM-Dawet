@@ -149,9 +149,12 @@ class Pesanan extends CI_Controller {
             redirect(base_url('pesanan'));
         }
         else {
+            $password = md5($post['password']);
             $data_pelanggan = array(
                 'id' => $post['id_pelanggan'],
                 'nama' => $post['nama_pelanggan'],
+                'username' => $post['username'],
+                'password' => $password,
                 'no_telp' => $post['no_telp_pelanggan'],
                 'alamat' => $post['alamat_pelanggan'],
             );

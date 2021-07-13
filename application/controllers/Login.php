@@ -39,7 +39,15 @@ class Login extends CI_Controller {
             'password' => $password 
         );
 
-        $sql = $this->M_admin->select_where('user', $where_cek);
+        if($post['level'] == '1')
+        {
+            $sql = $this->M_admin->select_where('pelanggan', $where_cek);
+            $status = 'user_login';
+        }
+        else {
+            $sql = $this->M_admin->select_where('user', $where_cek);
+            $status = 'dawet_login';
+        }
 
         $cek_num = $sql->num_rows();
         $cek_row = $sql->row_array();
@@ -48,16 +56,24 @@ class Login extends CI_Controller {
         {
 
             $data_session = array(
-					'dawet_status' => "dawet_login",
+					'dawet_status' => $status,
 					'dawet_nama' => $cek_row['nama'],
 					'dawet_id' => $cek_row['id'],
                     'dawet_username' => $cek_row['username'],
                     'dawet_level' => $cek_row['level']
 			);
 			$this->session->set_userdata($data_session);
-			redirect(base_url('dashboard'));
+
+            if($post['level'] == '1')
+            {
+                redirect(base_url('user_panel/dashboard'));
+            }
+            else {
+			    redirect(base_url('dashboard'));
+            }
         }
         else {
+            echo $status;
             redirect(base_url('login?error=Username dan Password tidak ditemukan'));
         }
     }

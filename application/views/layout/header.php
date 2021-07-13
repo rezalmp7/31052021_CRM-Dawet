@@ -61,12 +61,17 @@ error_reporting(0);
                     <?php
                     }
                     ?>
+                    <?php 
+                    if($level == 2 || $level == 1)
+                    {
+                    ?>
                     <li class="<?php if($page == 'pelanggan') echo 'uk-active '; ?>uk-padding-remove uk-margin-remove"><a class="uk-display-block"
                             href="<?php echo base_url(); ?>pelanggan"><span class="iconify" data-icon="gridicons:multiple-users"
                                 data-inline="false"></span>
                             Pelanggan</a></li>
                             
                     <?php 
+                    }
                     if($level == 2)
                     {
                     ?>
@@ -75,11 +80,15 @@ error_reporting(0);
                     </li>
                     <?php
                     }
+                    
+                    if($level == 2 || $level == 1)
+                    {
                     ?>
                     <li class="<?php if($page == 'pesanan') echo 'uk-active '; ?>uk-padding-remove uk-margin-remove"><a class="uk-display-block" href="<?php echo base_url(); ?>pesanan"><span
                                 class="iconify" data-icon="clarity:list-solid-badged" data-inline="false"></span>
                             Pesanan</a></li>
                     <?php 
+                    }
                     if($level == 2)
                     {
                     ?>

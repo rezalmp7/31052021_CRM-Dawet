@@ -15,6 +15,19 @@
                                         </div>
                                     </div>
                                     <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Username</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="text" name="username" placeholder="Username" value="<?php echo $pelanggan->username; ?>" required>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="<?php echo $pelanggan->password; ?>" name="password_lama">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="form-stacked-text">Ganti Password</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="form-stacked-text" type="password" name="password" required>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
                                         <label class="uk-form-label" for="form-stacked-text">No Telp</label>
                                         <div class="uk-form-controls">
                                             <input class="uk-input" id="form-stacked-text" type="number" name="no_telp" value="<?php echo $pelanggan->no_telp; ?>" placeholder="No Telp" required>

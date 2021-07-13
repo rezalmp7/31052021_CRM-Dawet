@@ -66,6 +66,18 @@
                                         placeholder="Password...">
                                 </div>
                             </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Login Sebagai</label>
+                                <div class="uk-form-controls">
+                                    <div class="uk-margin">
+                                        <select class="uk-select field-default" name="level" required>
+                                            <option value="">-- Login Sebagai --</option>
+                                            <option value="1">Pembeli</option>
+                                            <option value="2">Penjual/Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <input type="submit" value="MASUK" class="uk-button button-uk-success uk-width-1-1">
                         </form>
                     </div>

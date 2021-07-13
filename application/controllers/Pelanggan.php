@@ -72,9 +72,13 @@ class Pelanggan extends CI_Controller {
     {
         $post = $this->input->post();
 
+        $password = md5($post['password']);
+
         $data = array(
             'id' => $post['id'],
             'nama' => $post['nama'], 
+            'username' => $post['username'],
+            'password' => $password,
             'no_telp' => $post['no_telp'], 
             'alamat' => $post['alamat'], 
         );
@@ -103,10 +107,20 @@ class Pelanggan extends CI_Controller {
     {
         $post = $this->input->post();
 
+        if($post['password'] != null)
+        {
+            $password = md5($post['password']);
+        }
+        else {
+            $password = $post['password_lama'];
+        }
+
         $where = array('id' => $post['id'], );
 
         $set = array(
             'nama' => $post['nama'], 
+            'username' => $post['username'],
+            'password' => $password,
             'no_telp' => $post['no_telp'], 
             'alamat' => $post['alamat'], 
         );
