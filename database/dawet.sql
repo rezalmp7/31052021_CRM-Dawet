@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2021 at 12:42 PM
+-- Generation Time: Jul 15, 2021 at 10:40 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `pelanggan` (
   `id` int(4) NOT NULL COMMENT 'id pelanggan',
   `nama` varchar(50) NOT NULL COMMENT 'nama pelanggan',
+  `username` text NOT NULL,
+  `password` text NOT NULL,
   `no_telp` varchar(15) NOT NULL COMMENT 'nomor telephone pelanggan',
   `alamat` text NOT NULL COMMENT 'alamat pelanggan',
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'tanggal dibuat data'
@@ -39,10 +41,10 @@ CREATE TABLE `pelanggan` (
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id`, `nama`, `no_telp`, `alamat`, `create_at`) VALUES
-(1, 'Rezal Wahyu ', '087721191226', 'Ds. Angkatan Lor, Rt002, Rw002, Kec. Tambakromo, Kab. Pati', '2021-05-02 18:16:25'),
-(2, 'Supri', '08771232841', 'Ds. Cengklik, Kec. Winong, Kab. Pati', '2021-05-08 04:10:07'),
-(3, 'Wisnu Panitis', '08821723112', 'Ds. Grobog, Kec. Godong, Kab. Grobogan', '2021-05-08 05:37:32');
+INSERT INTO `pelanggan` (`id`, `nama`, `username`, `password`, `no_telp`, `alamat`, `create_at`) VALUES
+(1, 'Rezal Wahyu ', 'rezal', '398cb94411a2d4bdc9c7e3058943fc6a', '087721191226', 'Ds. Angkatan Lor, Rt002, Rw002, Kec. Tambakromo, Kab. Pati', '2021-07-15 06:36:33'),
+(2, 'Supri', 'supri', 'd79444495ba8886c397b418227564d3f', '08771232841', 'Ds. Cengklik, Kec. Winong, Kab. Pati', '2021-07-13 17:24:50'),
+(3, 'Wisnu Panitis', 'wisnu', '67340a8acc49d521d7fdd25db913bf9d', '08821723112', 'Ds. Grobog, Kec. Godong, Kab. Grobogan', '2021-07-13 17:24:50');
 
 -- --------------------------------------------------------
 
@@ -67,10 +69,10 @@ INSERT INTO `pesanan` (`id`, `id_transaksi`, `id_produk`, `qty`, `create_at`) VA
 (2, 1, 3, 4, '2021-05-08 05:35:53'),
 (12, 2, 1, 21, '2021-05-09 02:48:19'),
 (13, 2, 3, 1, '2021-05-09 02:48:19'),
-(25, 3, 1, 5, '2021-05-20 03:13:51'),
-(26, 3, 3, 1, '2021-05-20 03:13:51'),
 (27, 4, 1, 5, '2021-05-20 03:14:38'),
-(28, 4, 3, 5, '2021-05-20 03:14:38');
+(28, 4, 3, 5, '2021-05-20 03:14:38'),
+(29, 3, 1, 5, '2021-07-15 07:56:12'),
+(30, 3, 3, 1, '2021-07-15 07:56:12');
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,7 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `id_pelanggan`, `harga`, `disc`, `total`, `status`, `pesanan_tgl`, `create_at`, `proses_at`, `done_at`) VALUES
 (1, 1, 14000, 4, 13440, 'selesai', '2021-05-10', '2021-05-09 02:54:02', '2021-05-08 06:40:05', '2021-05-09 02:54:02'),
 (2, 1, 45000, 4, 43200, 'selesai', '2021-05-12', '2021-05-12 06:38:57', '2021-05-09 02:48:24', '2021-05-12 06:38:57'),
-(3, 1, 13000, 3, 12610, 'menunggu', '2021-05-21', '2021-05-20 03:13:51', NULL, NULL),
+(3, 1, 13000, 4, 12480, 'menunggu', '2021-05-21', '2021-07-15 07:56:12', NULL, NULL),
 (4, 2, 25000, 5, 23750, 'menunggu', '2021-05-20', '2021-05-20 03:14:38', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -193,7 +195,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT COMMENT 'ID Pesanan', AUTO_INCREMENT=29;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT COMMENT 'ID Pesanan', AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `produk`
