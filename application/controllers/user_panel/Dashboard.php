@@ -45,6 +45,21 @@ class Dashboard extends CI_Controller {
 		$where_selesai = array('status' => 'selesai', 'id_pelanggan' => $id_pengguna);
 		$data['selesai'] = $this->M_admin->select_where('transaksi', $where_selesai)->num_rows();
 
+		$where_daftar = array('id_pelanggan' => $id_pengguna );
+		$pesanan = $this->M_admin->select_select_where_orderBy('*', 'transaksi', $where_daftar, 'status ASC')->result_array();
+		$data['jumlah_pesanan'] = $this->M_admin->select_select_where_orderBy('*', 'transaksi', $where_daftar, 'status ASC')->num_rows();
+		$data['pesanan'] = $pesanan;
+
+		$produk_pesanan = array();
+		foreach ($pesanan as $a) {
+			$id = $a['id'];
+			$select_where = array('id_transaksi' => $a['id'], );
+			$produk_pesanan[$id] = $this->M_admin->select_select_where_join_2table_type('pesanan.id, produk.nama, produk.harga, pesanan.qty', 'pesanan', 'produk', 'pesanan.id_produk = produk.id', $select_where, 'left')->result_array();
+		}
+
+		$data['produk_pesanan'] = $produk_pesanan;
+
+
 		$data['jml_pelanggan'] = $this->M_admin->select_all('pelanggan')->num_rows();
 
 

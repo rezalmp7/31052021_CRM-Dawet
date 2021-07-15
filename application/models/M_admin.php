@@ -93,6 +93,14 @@ class M_admin extends CI_Model
         ->where($where)
         ->get();
     }
+    function select_select_where_orderBy($select, $table, $where, $orderBy)
+    {
+        return $this->db->select($select)
+        ->from($table)
+        ->where($where)
+        ->order_by($orderBy)
+        ->get();
+    }
     function select_select_where_join_2table_type($select, $table1, $table2, $on, $where, $type)
     {
         return $this->db->select($select)
